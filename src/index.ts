@@ -1,13 +1,10 @@
 import {
-    channelLink,
     Client,
-    DiscordAPIError,
+    Colors,
     EmbedBuilder,
     GatewayIntentBits,
-    Guild,
     Partials,
     WebhookClient,
-    WelcomeChannel,
 } from "discord.js";
 import { config } from "./utils/config";
 import { logHelper } from "./utils/logHelper";
@@ -29,50 +26,59 @@ const client = new Client({
 });
 
 client.on("ready", () => {
+    logHelper.clear();
     logHelper.log(`Logged in as ${client.user?.username}`);
-
-    const myEmbed = new EmbedBuilder()
-        .setTitle("Wilkommen")
-        .setDescription(
-            `Moin <@${client.user.id}>! Willkommen bei **/Jailtime** .`
-        )
-        .setThumbnail(
-            "https://cdn.discordapp.com/icons/838452466202443797/a_5e72df05275b8c886150f7e4ced79ac4.png?size=2048"
-        );
-
-    const webhookClient = new WebhookClient({
-        id: config.webHookId,
-        token: config.webHookToken,
-    });
-
-    webhookClient.send({ embeds: [myEmbed] });
 });
 
-client.on("guildMemberAdd", (newMember) => {
+client.on("guildMemberAdd", (discordMember) => {
     try {
-        let roleOne = newMember.guild.roles.cache.find(
+        let roleOne = discordMember.guild.roles.cache.find(
             (role) => role.id === config.joinrole
         );
-        newMember.roles.add(roleOne);
+        discordMember.roles.add(roleOne);
 
-        // const myEmbed = new EmbedBuilder()
-        //     .setTitle("Wilkommen")
-        //     .setDescription(
-        //         `Moin ${newMember.user.tag}! Willkommen bei ${Guild.name}.`
-        //     )
-        //     .setThumbnail(newMember.displayAvatarURL + "");
+        const myEmbed = new EmbedBuilder()
+            .setColor(Colors.White)
+            .setTitle("Wilkommen")
+            .setDescription(
+                `Moin <@${discordMember.id}>! Willkommen bei **/Jailtime** .`
+            )
+            .setThumbnail(
+                "https://cdn.discordapp.com/icons/838452466202443797/a_5e72df05275b8c886150f7e4ced79ac4.png?size=2048"
+            );
 
-        // const webhookClient = new WebhookClient({
-        //     id: config.webHookId,
-        //     token: config.webHookToken,
-        // });
+        const webhookClient = new WebhookClient({
+            id: config.webHookIdWelcome,
+            token: config.webHookTokenWelcome,
+        });
 
-        // webhookClient.send({ embeds: [myEmbed] });
-
-        // let wChannel:   = newMember.guild.channels.cache.find((channel) => channel.id == config.welcomeChannel)
+        webhookClient.send({ embeds: [myEmbed] });
     } catch (err) {
         console.log(err);
     }
+});
+
+client.on("guildMemberRemove", (discordMember)=> {
+        try {
+            const myEmbed = new EmbedBuilder()
+                .setColor(Colors.White)
+                .setTitle("Leave")
+                .setDescription(
+                    `<@${discordMember.id}> ist geleavt!`
+                )
+                .setThumbnail(
+                    "https://cdn.discordapp.com/icons/838452466202443797/a_5e72df05275b8c886150f7e4ced79ac4.png?size=2048"
+                );
+
+            const webhookClient = new WebhookClient({
+                id: config.webhookIdLeave,
+                token: config.webhookTokenLeave,
+            });
+
+            webhookClient.send({ embeds: [myEmbed] });
+        } catch (err) {
+            console.log(err);
+        }
 });
 
 client.login(config.token);

@@ -66,29 +66,6 @@
   dependencies:
     "@types/node" "*"
 
-"ansi-parser@^3.2.1":
-  "integrity" "sha512-CGKGIbd678lm15IXJXI1cTyOVAnMQw0jES+klW/yIc+GzYccsYanLMhczPIIj2hE64B79g75QfiuWrEWd6nJdg=="
-  "resolved" "https://registry.npmjs.org/ansi-parser/-/ansi-parser-3.2.10.tgz"
-  "version" "3.2.10"
-
-"cli-box@^6.0.10":
-  "integrity" "sha512-6jjSF6G1gOXaCyBQJKo3L3lZKxP8jzdECG7FBiA4m2w7K8jBxXXwsMb75fBLwoVwOtKwvgKjLJurw8HU5XNciw=="
-  "resolved" "https://registry.npmjs.org/cli-box/-/cli-box-6.0.10.tgz"
-  "version" "6.0.10"
-  dependencies:
-    "ansi-parser" "^3.2.1"
-    "deffy" "^2.2.1"
-    "is-undefined" "^1.0.0"
-    "is-win" "^1.0.0"
-    "ul" "^5.2.1"
-
-"deffy@^2.2.1", "deffy@^2.2.2":
-  "integrity" "sha512-pLc9lsbsWjr6RxmJ2OLyvm+9l4j1yK69h+TML/gUit/t3vTijpkNGh8LioaJYTGO7F25m6HZndADcUOo2PsiUg=="
-  "resolved" "https://registry.npmjs.org/deffy/-/deffy-2.2.4.tgz"
-  "version" "2.2.4"
-  dependencies:
-    "typpy" "^2.0.0"
-
 "discord-api-types@^0.36.3":
   "integrity" "sha512-bz/NDyG0KBo/tY14vSkrwQ/n3HKPf87a0WFW/1M9+tXYK+vp5Z5EksawfCWo2zkAc6o7CClc0eff1Pjrqznlwg=="
   "resolved" "https://registry.npmjs.org/discord-api-types/-/discord-api-types-0.36.3.tgz"
@@ -125,13 +102,6 @@
     "strtok3" "^7.0.0-alpha.9"
     "token-types" "^5.0.0-alpha.2"
 
-"function.name@^1.0.3":
-  "integrity" "sha512-mVrqdoy5npWZyoXl4DxCeuVF6delDcQjVS9aPdvLYlBxtMTZDR2B5GVEQEoM1jJyspCqg3C0v4ABkLE7tp9xFA=="
-  "resolved" "https://registry.npmjs.org/function.name/-/function.name-1.0.13.tgz"
-  "version" "1.0.13"
-  dependencies:
-    "noop6" "^1.0.1"
-
 "ieee754@^1.2.1":
   "integrity" "sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA=="
   "resolved" "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz"
@@ -142,16 +112,6 @@
   "resolved" "https://registry.npmjs.org/inherits/-/inherits-2.0.4.tgz"
   "version" "2.0.4"
 
-"is-undefined@^1.0.0":
-  "integrity" "sha512-gRwyH8IRpV73MDlVefPllIjxBjrP9YAB0YCLtxnROhRkedTSzzBJgfxTC6HgP2/dttawQHWNZe88MvXS9Hbn/g=="
-  "resolved" "https://registry.npmjs.org/is-undefined/-/is-undefined-1.0.11.tgz"
-  "version" "1.0.11"
-
-"is-win@^1.0.0":
-  "integrity" "sha512-tJ9PPj5RW2RUaZ2lAIVRqQjMSynA44Ln89h+Ue+pOecoWIv6dLHvN6dtLxeCi/h5epPJPSVyuaNObLAMq62OEA=="
-  "resolved" "https://registry.npmjs.org/is-win/-/is-win-1.0.10.tgz"
-  "version" "1.0.10"
-
 "lodash.snakecase@^4.1.1":
   "integrity" "sha512-QZ1d4xoBHYUeuouhEq3lk3Uq7ldgyFXGBhg04+oRLnIz8o9T65Eh+8YdroUwn846zchkA9yDsDl5CVVaV2nqYw=="
   "resolved" "https://registry.npmjs.org/lodash.snakecase/-/lodash.snakecase-4.1.1.tgz"
@@ -161,11 +121,6 @@
   "integrity" "sha512-7lYL8bLopMoy4CTICbxygAUq6CdRJ36vFc80DucPueUee+d5NBRxz3FdT9Pes/HEx5mPoT9jwnsEJWz1N7uq7Q=="
   "resolved" "https://registry.npmjs.org/lodash.uniqwith/-/lodash.uniqwith-4.5.0.tgz"
   "version" "4.5.0"
-
-"noop6@^1.0.1":
-  "integrity" "sha512-DB3Hwyd89dPr5HqEPg3YHjzvwh/mCqizC1zZ8vyofqc+TQRyPDnT4wgXXbLGF4z9YAzwwTLi8pNLhGqcbSjgkA=="
-  "resolved" "https://registry.npmjs.org/noop6/-/noop6-1.0.9.tgz"
-  "version" "1.0.9"
 
 "peek-readable@^5.0.0":
   "integrity" "sha512-YtCKvLUOvwtMGmrniQPdO7MwPjgkFBtFIrmfSbYmYuq3tKDV/mcfAhBth1+C3ru7uXIZasc/pHnb+YDYNkkj4A=="
@@ -230,21 +185,6 @@
   "integrity" "sha512-C0WQT0gezHuw6AdY1M2jxUO83Rjf0HP7Sk1DtXj6j1EwkQNZrHAg2XPWlq62oqEhYvONq5pkC2Y9oPljWToLmQ=="
   "resolved" "https://registry.npmjs.org/typescript/-/typescript-4.7.4.tgz"
   "version" "4.7.4"
-
-"typpy@^2.0.0", "typpy@^2.3.4":
-  "integrity" "sha512-vOxIcQz9sxHi+rT09SJ5aDgVgrPppQjwnnayTrMye1ODaU8gIZTDM19t9TxmEElbMihx2Nq/0/b/MtyKfayRqA=="
-  "resolved" "https://registry.npmjs.org/typpy/-/typpy-2.3.13.tgz"
-  "version" "2.3.13"
-  dependencies:
-    "function.name" "^1.0.3"
-
-"ul@^5.2.1":
-  "integrity" "sha512-svLEUy8xSCip5IWnsRa0UOg+2zP0Wsj4qlbjTmX6GJSmvKMHADBuHOm1dpNkWqWPIGuVSqzUkV3Cris5JrlTRQ=="
-  "resolved" "https://registry.npmjs.org/ul/-/ul-5.2.15.tgz"
-  "version" "5.2.15"
-  dependencies:
-    "deffy" "^2.2.2"
-    "typpy" "^2.3.4"
 
 "undici@^5.8.0":
   "integrity" "sha512-3KLq3pXMS0Y4IELV045fTxqz04Nk9Ms7yfBBHum3yxsTR4XNn+ZCaUbf/mWitgYDAhsplQ0B1G4S5D345lMO3A=="
