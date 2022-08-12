@@ -1,4 +1,5 @@
 import {
+    ActivityType,
     Client,
     Colors,
     EmbedBuilder,
@@ -6,7 +7,7 @@ import {
     Partials,
     WebhookClient,
 } from "discord.js";
-import { config } from "./utils/config";
+import { config } from './utils/config';
 import { logHelper } from "./utils/logHelper";
 
 const client = new Client({
@@ -28,7 +29,27 @@ const client = new Client({
 client.on("ready", () => {
     logHelper.clear();
     logHelper.log(`Logged in as ${client.user?.username}`);
+
+    updatePresence(client, "active")
 });
+
+const updatePresence = async (client, state) => {
+    // Set the presence
+    const activity = {
+        name: 'Jailtime',
+        type: 'WATCHING',
+        details: 'discord.gg/jailtime',
+        state: state,
+        timestamps: {
+            start: Date.now(),
+        },
+     };
+    client.user.setPresence({
+        pid: process.pid,
+        activity: activity,
+        status: 'online',
+    });
+};
 
 client.on("guildMemberAdd", (discordMember) => {
     try {
