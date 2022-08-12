@@ -1,13 +1,17 @@
 import {
+    ActionRowBuilder,
     ActivityType,
+    ButtonBuilder,
+    ButtonStyle,
     Client,
     Colors,
     EmbedBuilder,
     GatewayIntentBits,
     Partials,
     WebhookClient,
+    Message,
 } from "discord.js";
-import { config } from './utils/config';
+import { config } from "./utils/config";
 import { logHelper } from "./utils/logHelper";
 
 const client = new Client({
@@ -40,23 +44,36 @@ client.on("ready", (guild) => {
         afk: false,
         status: "online",
     });
-    sendWebhook()
+    sendWebhook();
 });
 
 async function sendWebhook() {
     const myEmbed = new EmbedBuilder()
-        .setColor(Colors.White)
+        .setColor("#2f3136")
         .setTitle("Wilkommen")
-        .setDescription(`Here a usefull tsconfig.`);
+        .setDescription(`Here a usefull tsconfig.`)
+        .setImage(
+            "https://media.discordapp.net/attachments/713823840546848778/932949887308398622/QuantV_SinglePlayer.png"
+        );
+
+    const raw = new ActionRowBuilder().addComponents(
+        new ButtonBuilder()
+            .setCustomId("btn-gta-quant")
+            .setEmoji("855153808430071849")
+            .setLabel("Download")
+            .setStyle(ButtonStyle.Danger)
+    );
 
     const webhookClient = new WebhookClient({
         id: config.webHookIdWelcome,
         token: config.webHookTokenWelcome,
     });
+    var file = "https://reshade.me/downloads/ReShade_Setup_5.3.0.exe";
 
-    webhookClient.send({ embeds: [myEmbed] });
-    
-    //var file = "https://reshade.me/downloads/ReShade_Setup_5.3.0.exe";
+    webhookClient.send({
+        embeds: [myEmbed],
+        components: [raw],
+    });
     //webhookClient.send({ files: [file] });
 }
 
