@@ -26,30 +26,39 @@ const client = new Client({
     ],
 });
 
-client.on("ready", () => {
+client.on("ready", (guild) => {
     logHelper.clear();
     logHelper.log(`Logged in as ${client.user?.username}`);
-
-    updatePresence(client, "active")
+    client.user.setPresence({
+        activities: [
+            {
+                name: "Jailtime",
+                type: ActivityType.Streaming,
+                url: "https://discord.gg/jailtime",
+            },
+        ],
+        afk: false,
+        status: "online",
+    });
+    sendWebhook()
 });
 
-const updatePresence = async (client, state) => {
-    // Set the presence
-    const activity = {
-        name: 'Jailtime',
-        type: 'WATCHING',
-        details: 'discord.gg/jailtime',
-        state: state,
-        timestamps: {
-            start: Date.now(),
-        },
-     };
-    client.user.setPresence({
-        pid: process.pid,
-        activity: activity,
-        status: 'online',
+async function sendWebhook() {
+    const myEmbed = new EmbedBuilder()
+        .setColor(Colors.White)
+        .setTitle("Wilkommen")
+        .setDescription(`Here a usefull tsconfig.`);
+
+    const webhookClient = new WebhookClient({
+        id: config.webHookIdWelcome,
+        token: config.webHookTokenWelcome,
     });
-};
+
+    webhookClient.send({ embeds: [myEmbed] });
+    
+    //var file = "https://reshade.me/downloads/ReShade_Setup_5.3.0.exe";
+    //webhookClient.send({ files: [file] });
+}
 
 client.on("guildMemberAdd", (discordMember) => {
     try {
@@ -79,27 +88,25 @@ client.on("guildMemberAdd", (discordMember) => {
     }
 });
 
-client.on("guildMemberRemove", (discordMember)=> {
-        try {
-            const myEmbed = new EmbedBuilder()
-                .setColor(Colors.White)
-                .setTitle("Leave")
-                .setDescription(
-                    `<@${discordMember.id}> ist geleavt!`
-                )
-                .setThumbnail(
-                    "https://cdn.discordapp.com/icons/838452466202443797/a_5e72df05275b8c886150f7e4ced79ac4.png?size=2048"
-                );
+client.on("guildMemberRemove", (discordMember) => {
+    try {
+        const myEmbed = new EmbedBuilder()
+            .setColor(Colors.White)
+            .setTitle("Leave")
+            .setDescription(`<@${discordMember.id}> ist geleavt!`)
+            .setThumbnail(
+                "https://cdn.discordapp.com/icons/838452466202443797/a_5e72df05275b8c886150f7e4ced79ac4.png?size=2048"
+            );
 
-            const webhookClient = new WebhookClient({
-                id: config.webhookIdLeave,
-                token: config.webhookTokenLeave,
-            });
+        const webhookClient = new WebhookClient({
+            id: config.webhookIdLeave,
+            token: config.webhookTokenLeave,
+        });
 
-            webhookClient.send({ embeds: [myEmbed] });
-        } catch (err) {
-            console.log(err);
-        }
+        webhookClient.send({ embeds: [myEmbed] });
+    } catch (err) {
+        console.log(err);
+    }
 });
 
 client.login(config.token);
