@@ -125,4 +125,9 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
-Discord_Typescript_Bot.code-workspace
+
+# Jetbrains Files
+.idea
+
+# Ignore Main Config
+src/util/config/config.ts
