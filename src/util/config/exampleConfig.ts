@@ -8,6 +8,8 @@ class Config {
     public intents: any[];
     public partials: any[];
 
+    public logChannel: string;
+
     constructor() {
         this.token =
             "<BotTokenHere>";
@@ -16,6 +18,8 @@ class Config {
 
         this.intents = [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMembers, GatewayIntentBits.GuildBans, GatewayIntentBits.GuildEmojisAndStickers, GatewayIntentBits.GuildIntegrations, GatewayIntentBits.GuildWebhooks, GatewayIntentBits.GuildInvites, GatewayIntentBits.GuildVoiceStates, GatewayIntentBits.GuildPresences, GatewayIntentBits.GuildMessages, GatewayIntentBits.GuildMessageReactions, GatewayIntentBits.GuildMessageTyping, GatewayIntentBits.DirectMessages, GatewayIntentBits.DirectMessageReactions, GatewayIntentBits.DirectMessageTyping, GatewayIntentBits.MessageContent, GatewayIntentBits.GuildScheduledEvents]
         this.partials = [Partials.User, Partials.Channel, Partials.GuildMember, Partials.Message]
+
+        this.logChannel = "<logChannelID>"
     }
 }
 
@@ -24,5 +28,6 @@ export const {
     guildId,
     clientId,
     intents,
-    partials
+    partials,
+    logChannel
 } = new Config();
