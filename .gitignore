@@ -129,5 +129,7 @@ dist
 # Jetbrains Files
 .idea
 
-# Ignore Main Config
+#Ignore Files
 src/util/config/config.ts
+yarn.lock
+package-lock.json
