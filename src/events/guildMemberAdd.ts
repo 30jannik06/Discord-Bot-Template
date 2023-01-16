@@ -1,11 +1,11 @@
-import { GuildMember } from "discord.js";
+import { Events, GuildMember } from "discord.js";
 
 module.exports = {
-    name: "guildMemberAdd",
+    name: Events.GuildMemberAdd,
     once: false,
     execute(member: GuildMember) {
         try {
-            console.log(`${member.id} joined the Guild!`);
+            console.log("join" + member.id);
         } catch (e) {
             console.error("Ready Event: " + e);
         }
