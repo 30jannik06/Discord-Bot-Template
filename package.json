@@ -1,16 +1,13 @@
 {
-  "scripts": {
-    "build": "tsc",
-    "start": "node ./out/bot.js"
-  },
-  "dependencies": {
-    "@napi-rs/canvas": "0.1.29",
-    "chalk": "4.1.2",
-    "discord.js": "^14.6.0",
-    "undici": "^5.10.0"
-  },
-  "devDependencies": {
-    "typescript": "^4.8.4",
-    "yarn": "^1.22.19"
-  }
+    "scripts": {
+        "start": "node ./out/index.js",
+        "build": "tsc"
+    },
+    "dependencies": {
+        "chalk": "4.1.2",
+        "discord.js": "^14.7.1"
+    },
+    "devDependencies": {
+        "typescript": "^4.8.2"
+    }
 }

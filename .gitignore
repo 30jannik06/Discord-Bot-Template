@@ -126,10 +126,10 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# Jetbrains Files
-.idea
-
-#Ignore Files
+#Config File
 src/util/config/config.ts
-yarn.lock
-package-lock.json
+Delete_Commands/config.json
+
+# Jetbrains-Folders
+.idea
+.fleet
