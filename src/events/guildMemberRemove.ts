@@ -1,11 +1,11 @@
-import { GuildMember } from "discord.js";
+import { GuildMember, Events } from "discord.js";
 
 module.exports = {
-    name: "guildMemberRemove",
+    name: Events.GuildMemberRemove,
     once: false,
     execute(member: GuildMember) {
         try {
-            console.log(`${member.id} left the Guild!`);
+            console.log("left" + member.id);
         } catch (e) {
             console.error("Ready Event: " + e);
         }
