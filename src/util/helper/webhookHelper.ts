@@ -1,14 +1,22 @@
 import { WebhookClient } from "discord.js";
 
 class WebhookHelper {
-    async webhookClient(wID: string, wToken: string, embed?: any) {
+    async webhookClient(
+        wID: string,
+        wToken: string,
+        msg?: string,
+        embed?: any[],
+        file?: any[]
+    ) {
         const webhookClient = new WebhookClient({
             id: wID,
             token: wToken,
         });
 
         await webhookClient.send({
-            embeds: [embed],
+            content: msg,
+            embeds: embed,
+            files: file,
         });
     }
 }
